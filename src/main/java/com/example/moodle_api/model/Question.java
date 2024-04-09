@@ -32,4 +32,5 @@ public class Question {
     @Column(name = "duration")
     private int duration;
 
+
 }
