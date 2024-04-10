@@ -29,8 +29,5 @@ public class Question {
     @Column(name = "length")
     private Long length;
 
-    @Column(name = "duration")
-    private int duration;
-
 
 }
