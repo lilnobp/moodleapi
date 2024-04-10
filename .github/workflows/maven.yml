@@ -29,6 +29,10 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+      env: 
+         MOODLE_DB_PASS: lelouch.?95
+         MOODLE_DB_USERNAME: tester123
+         MOODLE_DB_HOST: moodle.km-bizz.com
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
