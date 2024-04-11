@@ -29,5 +29,4 @@ public class Question {
     @Column(name = "length")
     private Long length;
 
-
 }

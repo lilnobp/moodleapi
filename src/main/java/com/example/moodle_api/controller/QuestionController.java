@@ -2,6 +2,10 @@ package com.example.moodle_api.controller;
 
 import com.example.moodle_api.model.Question;
 import com.example.moodle_api.model.QuestionAnswer;
+import com.example.moodle_api.model.CustomFieldData;
+import com.example.moodle_api.model.QuestionVersionCustomField;
+import com.example.moodle_api.repository.CustomFieldDataRepository;
+import com.example.moodle_api.repository.QuestionCustomFieldDataRepository;
 import com.example.moodle_api.service.QuestionService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +19,8 @@ import java.util.Optional;
 public class QuestionController {
 
     private final QuestionService questionService;
-
+    private final CustomFieldDataRepository customFieldDataRepository;
+    private final QuestionCustomFieldDataRepository questionCustomFieldDataRepository;
     @GetMapping("/all")
     public List<Question> getQuestion(){
         return  questionService.getQuestions();
@@ -29,6 +34,22 @@ public class QuestionController {
     @PostMapping("/answer")
     public Question insertQuestion( @RequestBody Question question){
         return questionService.insertQuestion(question);
+    }
+
+    @GetMapping("/customField")
+    public List<CustomFieldData> getQuestionCustomField(@RequestParam long instanceId){
+        return (List<CustomFieldData>) customFieldDataRepository.findAllById(instanceId);
+    }
+
+
+    @GetMapping("/customFields")
+    public List<CustomFieldData> getQuestionCustomFields(){
+        return (List<CustomFieldData>) customFieldDataRepository.findAll();
+    }
+
+    @GetMapping("/questionCustomFields")
+    public List<QuestionVersionCustomField> getQuestionVersionCustomFields(){
+        return (List<QuestionVersionCustomField>) questionCustomFieldDataRepository.findAll();
     }
 
 }
