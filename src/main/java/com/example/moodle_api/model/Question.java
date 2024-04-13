@@ -29,4 +29,10 @@ public class Question {
     @Column(name = "length")
     private Long length;
 
+    @Column(name = "createdby")
+    private Long createBy;
+
+    @Column(name = "modifiedby")
+    private Long modifiedBy;
+
 }
