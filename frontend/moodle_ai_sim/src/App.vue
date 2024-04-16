@@ -1,3 +1,4 @@
+
 <template>
   <div id="app">
     <HelloWorld/>
@@ -6,7 +7,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import "./App.css"
 export default {
   name: 'App',
   components: {

@@ -18,7 +18,9 @@ public class QuestionService {
     private final QuestionAnswerRepository questionAnswerRepository;
 
     public Question insertQuestion( Question question){
-        return  questionRepository.save(question);
+        return questionRepository.findByNameContainsIgnoreCase(question.getName())
+                .orElseGet(() -> questionRepository.save(question));
+
     }
 
     public List<Question> getQuestions(){

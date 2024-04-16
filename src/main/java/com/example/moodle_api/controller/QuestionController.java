@@ -2,7 +2,7 @@ package com.example.moodle_api.controller;
 
 import com.example.moodle_api.model.Question;
 import com.example.moodle_api.model.QuestionAnswer;
-import com.example.moodle_api.model.CustomFieldData;
+import com.example.moodle_api.model.CustomFieldDataCategory;
 import com.example.moodle_api.model.QuestionVersionCustomField;
 import com.example.moodle_api.repository.CustomFieldDataRepository;
 import com.example.moodle_api.repository.QuestionCustomFieldDataRepository;
@@ -33,18 +33,19 @@ public class QuestionController {
 
     @PostMapping("/answer")
     public Question insertQuestion( @RequestBody Question question){
+
         return questionService.insertQuestion(question);
     }
 
     @GetMapping("/customField")
-    public List<CustomFieldData> getQuestionCustomField(@RequestParam long instanceId){
-        return (List<CustomFieldData>) customFieldDataRepository.findAllById(instanceId);
+    public List<CustomFieldDataCategory> getQuestionCustomField(@RequestParam long instanceId){
+        return (List<CustomFieldDataCategory>) customFieldDataRepository.findAllById(instanceId);
     }
 
 
     @GetMapping("/customFields")
-    public List<CustomFieldData> getQuestionCustomFields(){
-        return (List<CustomFieldData>) customFieldDataRepository.findAll();
+    public List<CustomFieldDataCategory> getQuestionCustomFields(){
+        return (List<CustomFieldDataCategory>) customFieldDataRepository.findAll();
     }
 
     @GetMapping("/questionCustomFields")

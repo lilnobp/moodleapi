@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Immutable
 @Table(name = "vw_custom_field_category_data")
 @Subselect( "select * from vw_custom_field_category_data ")
-public class CustomFieldData implements Serializable {
+public class CustomFieldDataCategory implements Serializable {
 
     @Column(name = "property_name")
     private String propertyName;

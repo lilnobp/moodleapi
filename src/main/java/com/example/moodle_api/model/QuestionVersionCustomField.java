@@ -37,5 +37,5 @@ public class QuestionVersionCustomField implements Serializable {
 
     @OneToMany
     @JoinColumn(name = "instanceid", referencedColumnName = "id")
-    private List<CustomFieldData> properties;
+    private List<CustomFieldDataCategory> properties;
 }

@@ -4,7 +4,7 @@ import NormalQuestion from "@/components/question/NormalQuestion.vue";
 
 <template>
 
-  <b-container>
+  <b-container class="my-3">
     <b-card
         overlay
         img-src="https://picsum.photos/500/250/?image=4"

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+html, body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#app {
+    font-family: 'Ubuntu', sans-serif;
+}

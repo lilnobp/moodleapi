@@ -2,19 +2,19 @@
   <div class="hello">
 
     <HeaderPage></HeaderPage>
-    <QuestionLayout></QuestionLayout>
+    <CourseMoodle></CourseMoodle>
     <FooterPage></FooterPage>
   </div>
 </template>
 
 <script>
-import HeaderPage from "@/components/HeaderPage.vue";
-import FooterPage from "@/components/FooterPage.vue";
-import QuestionLayout from "@/components/question/QuestionLayout.vue";
+import HeaderPage from "@/components/header/HeaderPage.vue";
+import FooterPage from "@/components/header/FooterPage.vue";
+import CourseMoodle from "@/components/course/CourseMoodle.vue";
 
 export default {
   name: 'HelloWorld',
-  components: {QuestionLayout, FooterPage, HeaderPage},
+  components: {CourseMoodle, FooterPage, HeaderPage},
   props: {
     msg: String
   }
