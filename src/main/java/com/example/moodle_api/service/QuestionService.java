@@ -15,10 +15,8 @@ public class QuestionService {
 
     private final QuestionRepository questionRepository;
 
-    private final QuestionAnswerRepository questionAnswerRepository;
-
     public Question insertQuestion( Question question){
-        return questionRepository.findByNameContainsIgnoreCase(question.getName())
+        return questionRepository.findByQuestionTextContainsIgnoreCase(question.getName())
                 .orElseGet(() -> questionRepository.save(question));
 
     }
@@ -27,12 +25,8 @@ public class QuestionService {
         return (List<Question>) questionRepository.findAll();
     }
 
-
     public Optional<Question> getQuestionById(long id){
         return questionRepository.findById(id);
     }
 
-    public Optional<List<QuestionAnswer>> getListQuestionAnswer(long id){
-        return questionAnswerRepository.findQuestionAnswerByQuestion_Id(id);
-    }
 }

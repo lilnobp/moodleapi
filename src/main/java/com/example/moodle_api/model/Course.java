@@ -25,7 +25,6 @@ public class Course {
     @Column(name = "visible")
     private int visible;
 
-
     @Column(name = "timecreated", length = 10)
     private long timeCreated;
 

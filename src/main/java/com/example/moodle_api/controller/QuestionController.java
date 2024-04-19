@@ -5,9 +5,10 @@ import com.example.moodle_api.model.QuestionAnswer;
 import com.example.moodle_api.model.CustomFieldDataCategory;
 import com.example.moodle_api.model.QuestionVersionCustomField;
 import com.example.moodle_api.repository.CustomFieldDataRepository;
-import com.example.moodle_api.repository.QuestionCustomFieldDataRepository;
+import com.example.moodle_api.repository.QuestionVersionCustomFieldRepository;
 import com.example.moodle_api.service.QuestionService;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,20 +21,14 @@ public class QuestionController {
 
     private final QuestionService questionService;
     private final CustomFieldDataRepository customFieldDataRepository;
-    private final QuestionCustomFieldDataRepository questionCustomFieldDataRepository;
+    private final QuestionVersionCustomFieldRepository questionVersionCustomFieldRepository;
     @GetMapping("/all")
     public List<Question> getQuestion(){
         return  questionService.getQuestions();
     }
 
-    @GetMapping("/answer")
-    public Optional<List<QuestionAnswer>> getQuestionAnswers(@RequestParam long id){
-        return  questionService.getListQuestionAnswer(id);
-    }
-
     @PostMapping("/answer")
     public Question insertQuestion( @RequestBody Question question){
-
         return questionService.insertQuestion(question);
     }
 
@@ -49,8 +44,10 @@ public class QuestionController {
     }
 
     @GetMapping("/questionCustomFields")
+    @Transactional
     public List<QuestionVersionCustomField> getQuestionVersionCustomFields(){
-        return (List<QuestionVersionCustomField>) questionCustomFieldDataRepository.findAll();
+        var questions = questionVersionCustomFieldRepository.findAll();
+        return (List<QuestionVersionCustomField>) questions;
     }
 
 }

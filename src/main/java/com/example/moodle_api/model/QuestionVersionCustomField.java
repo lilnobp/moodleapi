@@ -6,6 +6,8 @@ import org.hibernate.annotations.Immutable;
 import org.hibernate.annotations.Subselect;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 @Entity
@@ -35,7 +37,10 @@ public class QuestionVersionCustomField implements Serializable {
     @Column(name = "versions")
     private Long version;
 
-    @OneToMany
-    @JoinColumn(name = "instanceid", referencedColumnName = "id")
-    private List<CustomFieldDataCategory> properties;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "instanceId", cascade = CascadeType.ALL)
+    private Collection<CustomFieldDataCategory> properties = new LinkedHashSet<CustomFieldDataCategory>();
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "question", cascade = CascadeType.ALL)
+    private Collection<QuestionAnswer> answers= new LinkedHashSet<QuestionAnswer>();
+
 }

@@ -17,14 +17,19 @@ public class QuestionAnswer {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private long id;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "question", referencedColumnName = "id")
-    private Question question;
+    @Column(name = "question")
+    private long question;
 
+    @Column(name = "id", insertable = false, updatable = false)
+    private long value;
+
+    /**
     @Column(name = "fraction")
     private double fraction;
+     will be should TODO
+     */
 
     @Column(name = "answer")
-    private String answer;
+    private String text;
 
 }
