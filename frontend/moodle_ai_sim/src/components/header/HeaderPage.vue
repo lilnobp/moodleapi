@@ -4,7 +4,7 @@
 <template>
   <div>
     <b-navbar sticky:=true toggleable="lg" type="dark" variant="dark">
-      <b-navbar-brand href="#">
+      <b-navbar-brand href="/">
         <template>
           <b-avatar variant="sucess">
             <img src="../../assets/moodle.png" height="40" width="40"/>
@@ -15,13 +15,13 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#">
+          <b-nav-item href="/">
             <template>
               <b-avatar variant="success" icon="book-fill"> </b-avatar>
               <b-nav-text class="ml-2"> Course </b-nav-text>
             </template>
           </b-nav-item>
-          <b-nav-item href="#">
+          <b-nav-item href="/question">
             <template>
               <b-avatar variant="success" icon="question-circle-fill"></b-avatar>
               <b-nav-text class="ml-2"> Simulation </b-nav-text>

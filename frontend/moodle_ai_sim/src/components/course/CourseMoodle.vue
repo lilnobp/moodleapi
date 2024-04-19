@@ -1,16 +1,19 @@
 <template>
   <b-container>
-
     <b-row style="justify-content: start; margin-top: 10px">
       <h3>
         My Courses :
       </h3>
-
-      <b-button class="mx-3">
+      <b-button v-b-toggle.sidebar-1 class="mx-3">
         <b-icon icon="plus-circle-fill"></b-icon>
       </b-button>
+      <b-sidebar id="sidebar-1" title="Add New Course " shadow>
+        <div class="px-3 py-2">
+          <b-img src="https://picsum.photos/500/300/?image=54" fluid thumbnail></b-img>
+          <AddCourse></AddCourse>
+        </div>
+      </b-sidebar>
     </b-row>
-
     <b-row>
       <div class="my-3 mx-lg-4" v-for="course in this.courses" :key="course.id" >
 
@@ -50,17 +53,18 @@
 <script>
 import axios from "axios";
 import EvaluationForm from "@/components/course/EvaluationSetting.vue";
+import AddCourse from "@/components/course/AddCourse.vue";
+import backendPoint from "@/moodleconfig";
 export default {
   name: 'CourseMoodle',
-  components: {EvaluationForm},
+  components: {AddCourse, EvaluationForm},
   props: {},
   methods:{
     async getCourses(){
-        const courseReq = await axios.get("http://localhost:8084/course/all")
+        const courseReq = await axios.get(backendPoint().concat("/course/all"))
         this.courses = courseReq?.data
         this.loading = false
         console.log(this.courses)
-
     },
   },
 
@@ -71,7 +75,6 @@ export default {
     this.getCourses()
   }
 }
-
 </script>
 <style scoped>
 </style>

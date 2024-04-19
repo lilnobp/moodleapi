@@ -10,8 +10,7 @@
       moodle AI Tools
     </b-nav-item>
 
-    <b-nav-item href="">
-
+    <b-nav-item href="/question">
       Link Open Page
     </b-nav-item>
 

@@ -21,6 +21,7 @@ export default {
     onSubmit(event) {
       event.preventDefault()
       alert(JSON.stringify(this.form))
+      this.$router.push("/question")
     },
     onReset(event) {
       event.preventDefault()
@@ -80,7 +81,6 @@ export default {
         <b-form-select id="input-3" v-model:="form.difficulties" :options="options" size="sm" class="mt-3"></b-form-select>
       </b-form-group>
     </b-form>
-
 </template>
 
 <style scoped>

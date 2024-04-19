@@ -15,7 +15,8 @@
     "bootstrap-vue": "^2.23.1",
     "core-js": "^3.8.3",
     "popper": "^1.0.1",
-    "vue": "^2.7.16"
+    "vue": "^2.7.16",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -24,12 +25,12 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "vue-loader": "^17.4.2",
-    "vue-template-compiler": "^2.7.16",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "vue-loader": "^17.4.2",
+    "vue-template-compiler": "^2.7.16"
   },
   "eslintConfig": {
     "root": true,
@@ -47,18 +48,37 @@
       "semi-spacing": "off",
       "quotes": "off",
       "no-irregular-whitespace": "off",
-      "vue/valid-v-slot": ["error", { "allowModifiers": true }],
+      "vue/valid-v-slot": [
+        "error",
+        {
+          "allowModifiers": true
+        }
+      ],
       "linebreak-style": "off",
-      "comma-dangle": ["warn", "only-multiline"],
+      "comma-dangle": [
+        "warn",
+        "only-multiline"
+      ],
       "@typescript-eslint/explicit-module-boundary-types": "off",
       "no-console": "off",
       "no-debugger": "warn",
       "vue/no-unused-vars": "off",
       "no-useless-rename": "error",
-      "one-var": ["warn", "consecutive"],
+      "one-var": [
+        "warn",
+        "consecutive"
+      ],
       "no-var": "error",
-      "prefer-const": ["error", { "destructuring": "all" }],
-      "multiline-comment-style": ["error", "separate-lines"],
+      "prefer-const": [
+        "error",
+        {
+          "destructuring": "all"
+        }
+      ],
+      "multiline-comment-style": [
+        "error",
+        "separate-lines"
+      ],
       "prefer-template": "warn",
       "no-useless-concat": "warn",
       "sort-imports": [
@@ -67,50 +87,57 @@
           "ignoreCase": false,
           "ignoreDeclarationSort": true,
           "ignoreMemberSort": false,
-          "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+          "memberSyntaxSortOrder": [
+            "none",
+            "all",
+            "multiple",
+            "single"
+          ],
           "allowSeparatedGroups": true
         }
       ],
-  "vue/no-parsing-error": ["error", {
-    "abrupt-closing-of-empty-comment": true,
-    "absence-of-digits-in-numeric-character-reference": true,
-    "cdata-in-html-content": true,
-    "character-reference-outside-unicode-range": true,
-    "control-character-in-input-stream": true,
-    "control-character-reference": true,
-    "eof-before-tag-name": true,
-    "eof-in-cdata": true,
-    "eof-in-comment": true,
-    "eof-in-tag": true,
-    "incorrectly-closed-comment": true,
-    "incorrectly-opened-comment": true,
-    "invalid-first-character-of-tag-name": true,
-    "missing-attribute-value": true,
-    "missing-end-tag-name": true,
-    "missing-semicolon-after-character-reference": true,
-    "missing-whitespace-between-attributes": true,
-    "nested-comment": true,
-    "noncharacter-character-reference": true,
-    "noncharacter-in-input-stream": true,
-    "null-character-reference": true,
-    "surrogate-character-reference": true,
-    "surrogate-in-input-stream": true,
-    "unexpected-character-in-attribute-name": true,
-    "unexpected-character-in-unquoted-attribute-value": true,
-    "unexpected-equals-sign-before-attribute-name": true,
-    "unexpected-null-character": true,
-    "unexpected-question-mark-instead-of-tag-name": true,
-    "unexpected-solidus-in-tag": true,
-    "unknown-named-character-reference": true,
-    "end-tag-with-attributes": true,
-    "duplicate-attribute": true,
-    "end-tag-with-trailing-solidus": true,
-    "non-void-html-element-start-tag-with-trailing-solidus": false,
-    "x-invalid-end-tag": true,
-    "x-invalid-namespace": true
-  }]
-}
-
+      "vue/no-parsing-error": [
+        "error",
+        {
+          "abrupt-closing-of-empty-comment": true,
+          "absence-of-digits-in-numeric-character-reference": true,
+          "cdata-in-html-content": true,
+          "character-reference-outside-unicode-range": true,
+          "control-character-in-input-stream": true,
+          "control-character-reference": true,
+          "eof-before-tag-name": true,
+          "eof-in-cdata": true,
+          "eof-in-comment": true,
+          "eof-in-tag": true,
+          "incorrectly-closed-comment": true,
+          "incorrectly-opened-comment": true,
+          "invalid-first-character-of-tag-name": true,
+          "missing-attribute-value": true,
+          "missing-end-tag-name": true,
+          "missing-semicolon-after-character-reference": true,
+          "missing-whitespace-between-attributes": true,
+          "nested-comment": true,
+          "noncharacter-character-reference": true,
+          "noncharacter-in-input-stream": true,
+          "null-character-reference": true,
+          "surrogate-character-reference": true,
+          "surrogate-in-input-stream": true,
+          "unexpected-character-in-attribute-name": true,
+          "unexpected-character-in-unquoted-attribute-value": true,
+          "unexpected-equals-sign-before-attribute-name": true,
+          "unexpected-null-character": true,
+          "unexpected-question-mark-instead-of-tag-name": true,
+          "unexpected-solidus-in-tag": true,
+          "unknown-named-character-reference": true,
+          "end-tag-with-attributes": true,
+          "duplicate-attribute": true,
+          "end-tag-with-trailing-solidus": true,
+          "non-void-html-element-start-tag-with-trailing-solidus": false,
+          "x-invalid-end-tag": true,
+          "x-invalid-namespace": true
+        }
+      ]
+    }
   },
   "browserslist": [
     "> 1%",
