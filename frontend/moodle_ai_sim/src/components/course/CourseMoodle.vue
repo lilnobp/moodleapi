@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <b-row style="justify-content: start; margin-top: 10px">
+    <b-row class="justify-content-lg-start mt-3">
       <h3>
         My Courses :
       </h3>
