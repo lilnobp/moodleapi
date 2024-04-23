@@ -21,8 +21,8 @@ public class CourseServiceTest {
     void add() {
 
         var course = Course.builder()
-                .fullName("Sport Entertainment")
-                .shortName("SPE")
+                .fullName("Math")
+                .shortName("MA")
                 .visible(1)
                 .summary("Tester")
                 .timeModified(new Date().getTime())

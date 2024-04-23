@@ -8,7 +8,6 @@ import org.hibernate.annotations.Subselect;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.LinkedHashSet;
-import java.util.List;
 
 @Entity
 @Immutable
@@ -41,6 +40,6 @@ public class QuestionVersionCustomField implements Serializable {
     private Collection<CustomFieldDataCategory> properties = new LinkedHashSet<CustomFieldDataCategory>();
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "question", cascade = CascadeType.ALL)
-    private Collection<QuestionAnswer> answers= new LinkedHashSet<QuestionAnswer>();
+    private Collection<QuestionAnswerCto> answers= new LinkedHashSet<QuestionAnswerCto>();
 
 }

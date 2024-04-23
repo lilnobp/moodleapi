@@ -1,7 +1,16 @@
 package com.example.moodle_api.model;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
@@ -11,7 +20,6 @@ import lombok.*;
 @Entity
 @Table(name = "mdl_question_answers", schema = "moodle")
 public class QuestionAnswer {
-
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY )
@@ -20,16 +28,18 @@ public class QuestionAnswer {
     @Column(name = "question")
     private long question;
 
-    @Column(name = "id", insertable = false, updatable = false)
-    private long value;
-
-    /**
     @Column(name = "fraction")
     private double fraction;
-     will be should TODO
-     */
+
+    @Column(name = "feedbackformat")
+    private int feedbackFormat;
 
     @Column(name = "answer")
-    private String text;
+    private String answer;
 
+    @Column(name = "answerformat")
+    private int answerFormat;
+
+    @Column(name = "feedback")
+    private String feedback;
 }

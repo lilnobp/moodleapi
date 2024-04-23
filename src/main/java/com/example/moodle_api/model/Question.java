@@ -2,7 +2,8 @@ package com.example.moodle_api.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
+import java.util.ArrayList;
+import java.util.Collection;
 @Getter
 @Setter
 @Builder
@@ -35,4 +36,19 @@ public class Question {
     @Column(name = "modifiedby")
     private Long modifiedBy;
 
+    @Column(name = "generalfeedback")
+    private  String generalfeedback;
+
+    @Column(name = "generalfeedbackformat")
+    private  int generalfeedbackFormat;
+
+    @Column(name = "qtype")
+    private  String qType;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "question", cascade = CascadeType.ALL)
+    private Collection<QuestionAnswer> answers = new ArrayList<>();
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "questionid")
+    private QuestionVersion version;
 }
